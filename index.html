@@ -22,8 +22,24 @@
                 <div class="nav-items">
                     <div><a href="#projects">Projects</a></div>
                     <div><a href="#skills">Skills</a></div>
-                    <div><a href="#contactme">Contact Me</a></div>
+                    <div><a href="#contactme">Contact</a></div>
+                
                 </div>
+                <div>
+                  <div class="menu-icon">
+                    <span>&#9776;</span>
+                </div>
+                </div>
+                <div class="sidebar">
+                  <div class="close-icon">&times;</div>
+                  <div class="sidebar-items">
+                      <div><a href="#projects">Projects</a></div>
+                      <div><a href="#skills">Skills</a></div>
+                      <div><a href="#contactme">Contact</a></div>
+                      
+                  </div>
+              </div>
+
 
             </div>
 
@@ -72,6 +88,15 @@
     
             </div>
         </div>
+        <div class="sidebar">
+          <div class="close-icon">&times;</div>
+          <div class="sidebar-items">
+              <div><a href="#">Home</a></div>
+              <div><a href="#">About</a></div>
+              <div><a href="#">Services</a></div>
+          </div>
+      </div>
+
 
         <div class="project-section" id="projects">
             <h2 class="page-header">Projects</h2>
@@ -91,12 +116,12 @@
                             <img class="project-skill" src="./images/stack/NodeJs.svg" alt="" />
                             <img class="project-skill" src="./images/stack/MongoDB.svg" alt="" />
                             <img class="project-skill" src="./images/stack/Redux.svg" alt="" />
-                            <img class="project-skill" id="vercel" src="./images/userAsset/vercel.png" alt="" />
+
                         </div>
 
                         <h2 class="project-heading">StudyNotion</h2>
 
-                        <p class="project-subHeading">StudyNotion is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. The platform is built using the MERN stack, which includes ReactJS, NodeJS, MongoDB, and ExpressJS.
+                        <p class="project-sub-heading">StudyNotion is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. The platform is built using the MERN stack, which includes ReactJS, NodeJS, MongoDB, and ExpressJS.
                         
                         </p>
                         <div class="btn-group">
@@ -243,11 +268,11 @@ and design, health and wellness, and much more
             <img src="./images/stack/Github.svg" alt="" class="skills-logo" />
             <img src="./images/stack/Graphql.svg" alt="" class="skills-logo" />
             <img src="./images/stack/MongoDB.svg" alt="" class="skills-logo" />
-           <div class="start">
+           
             <img src="./images/stack/Vercel.svg" alt="" class="skills-logo" />
             <img src="./images/stack/ChartJs.svg" alt="" class="skills-logo" />
             <img src="./images/stack/Bash.svg" alt="" class="skills-logo" />
-           </div>
+           
 
          
           </div>
@@ -356,6 +381,28 @@ and design, health and wellness, and much more
       backSpeed: 80,
       backDelay: 1000,
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuIcon = document.querySelector('.menu-icon');
+      const sidebar = document.querySelector('.sidebar');
+      const closeIcon = document.querySelector('.close-icon');
+    
+      menuIcon.addEventListener('click', () => {
+        sidebar.classList.toggle('show-sidebar');
+      });
+    
+      closeIcon.addEventListener('click', () => {
+        sidebar.classList.remove('show-sidebar');
+      });
+    
+      document.addEventListener('click', (event) => {
+        if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+          sidebar.classList.remove('show-sidebar');
+        }
+      });
+    });
+    
+ 
   </script>
 </body>
 </html>
